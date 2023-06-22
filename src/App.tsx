@@ -12,8 +12,6 @@ function App() {
 
   const newColor = generateRandomColor();
   function handleGenerate(event: React.MouseEvent<HTMLDivElement>) {
-    // event.stopPropagation();
-
     const { clientX, clientY } = event;
     const circleSize: CircleInt = {
       x: clientX,
@@ -29,17 +27,13 @@ function App() {
     setCircles(newArr);
   }
 
-  function removeLastCircle(event: React.MouseEvent) {
-    // event.stopPropagation();
-
+  function removeLastCircle() {
     const newArr = [...circles];
     newArr.pop();
     setCircles([...newArr]);
   }
 
-  function removeAllCircles(event: React.MouseEvent) {
-    // event.stopPropagation();
-
+  function removeAllCircles() {
     setCircles([]);
   }
   return (
