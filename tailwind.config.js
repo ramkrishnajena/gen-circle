@@ -7,6 +7,10 @@ export default {
         default: "#1D1D1D",
       },
     },
+    screens: {
+      xs: "300px",
+      sm: "640px",
+    },
   },
   plugins: [],
 };

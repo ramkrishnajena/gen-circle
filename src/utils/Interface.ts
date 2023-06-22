@@ -6,5 +6,5 @@ export interface CircleInt {
 
 export interface ButtonProps {
   name: string;
-  fn: () => void;
+  fn: (event: React.MouseEvent) => void;
 }

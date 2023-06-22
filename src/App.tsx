@@ -12,6 +12,8 @@ function App() {
 
   const newColor = generateRandomColor();
   function handleGenerate(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation();
+
     const { clientX, clientY } = event;
     const circleSize: CircleInt = {
       x: clientX,
@@ -27,28 +29,31 @@ function App() {
     setCircles(newArr);
   }
 
-  function removeLastCircle() {
+  function removeLastCircle(event: React.MouseEvent) {
+    event.stopPropagation();
+
     const newArr = [...circles];
     newArr.pop();
     setCircles([...newArr]);
   }
 
-  function removeAllCircles() {
+  function removeAllCircles(event: React.MouseEvent) {
+    event.stopPropagation();
+
     setCircles([]);
   }
   return (
     <main>
-      <div
-        className='w-full h-screen bg-default'
-        onClick={handleGenerate}></div>
-      {circles.map((element, i) => (
-        <div onClick={() => changeColor(i)} key={i}>
-          <Circle x={element.x} y={element.y} color={element.color} />
+      <div className='w-full h-screen bg-default' onClick={handleGenerate}>
+        {circles.map((element, i) => (
+          <div onClick={() => changeColor(i)} key={i}>
+            <Circle x={element.x} y={element.y} color={element.color} />
+          </div>
+        ))}
+        <div className='absolute sm:top-[90%] xs:top-[80%] xs:p-2 w-full flex justify-between flex-wrap gap-2 items-center flex-grow '>
+          <Button name='Remove Last Circle' fn={removeLast} />
+          <Button name='Remove All Circles' fn={removeAll} />
         </div>
-      ))}
-      <div className='absolute top-[90%] w-full flex justify-between flex-wrap items-center flex-grow '>
-        <Button name='Remove Last Circle' fn={removeLast} />
-        <Button name='Remove All Circles' fn={removeAll} />
       </div>
     </main>
   );
