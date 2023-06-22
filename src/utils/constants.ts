@@ -3,7 +3,7 @@ const colors: string[] = [
   "#DA9647",
   "#ABDA47",
   "#4ADA47",
-  "47BFDA",
+  "#47BFDA",
   "#4755DA",
 ];
 
