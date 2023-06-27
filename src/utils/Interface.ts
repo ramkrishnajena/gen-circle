@@ -2,6 +2,7 @@ export interface CircleInt {
   x: number;
   y: number;
   color: string;
+  size?: number;
 }
 
 export interface ButtonProps {

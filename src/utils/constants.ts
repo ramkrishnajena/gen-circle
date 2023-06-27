@@ -7,6 +7,12 @@ const colors: string[] = [
   "#4755DA",
 ];
 
+export function generateRandomSize() {
+  const random = Math.floor(Math.random() * (300 - 100)) + 100;
+
+  return random;
+}
+
 export function generateRandomColor() {
   const random = Math.floor(Math.random() * 6);
   return colors[random];

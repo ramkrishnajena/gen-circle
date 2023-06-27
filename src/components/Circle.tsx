@@ -1,13 +1,16 @@
 import { CircleInt } from "../utils/Interface";
 
-const Circle = ({ x, y, color }: CircleInt) => {
+const Circle = ({ x, y, color, size }: CircleInt) => {
+  console.log(size);
   return (
     <div
-      className='w-7 h-7 rounded-full absolute'
+      className='rounded-full absolute'
       style={{
         backgroundColor: color,
         left: x,
         top: y,
+        width: `${size}px`,
+        height: `${size}px`,
       }}></div>
   );
 };
